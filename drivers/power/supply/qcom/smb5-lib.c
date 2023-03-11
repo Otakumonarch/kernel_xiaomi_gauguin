@@ -2283,7 +2283,7 @@ int smblib_get_prop_batt_status(struct smb_charger *chg,
 			val->intval = POWER_SUPPLY_STATUS_CHARGING;
 		} else if (usb_online || vbus_now > 4000000) {
 			val->intval = POWER_SUPPLY_STATUS_CHARGING;
-			pr_info("vbus_now is %d, report charging\n", vbus_now);
+			pr_debug("vbus_now is %d, report charging\n", vbus_now);
 		} else {
 			val->intval = POWER_SUPPLY_STATUS_NOT_CHARGING;
 		}
@@ -6486,7 +6486,7 @@ static void smblib_six_pin_batt_step_chg_work(struct work_struct *work)
 		return;
 	}
 	main_charge_type = pval.intval;
-	pr_err("main_charge_type: %d\n", main_charge_type);
+	pr_debug("main_charge_type: %d\n", main_charge_type);
 
 	/*
 	 * Add capacity compare to optimize cool charge  switch to
